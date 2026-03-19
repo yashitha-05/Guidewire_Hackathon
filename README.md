@@ -614,3 +614,71 @@ This is a hackathon project for Guidewire DEVTrails 2026. Contributions are welc
 ## License
 
 MIT License - see LICENSE file for details.
+
+## 17. Adversarial Defense & Anti-Spoofing Strategy
+
+### 1. Differentiation: Real vs Fake Users
+
+GigShield uses AI-based behavioral analysis to distinguish between genuine delivery workers and malicious actors using GPS spoofing.
+
+Genuine users exhibit continuous movement patterns, realistic travel speeds, and consistent delivery activity. In contrast, spoofed users often show:
+
+* Sudden jumps in location
+* Unrealistic speed or no movement
+* Static presence in high-risk zones without activity
+
+An anomaly detection model (Isolation Forest) evaluates these patterns in real time and assigns a fraud risk score.
+
+---
+
+### 2. Multi-Layer Data Validation
+
+Instead of relying only on GPS, GigShield uses multiple data signals:
+
+* **Sensor Data**: Accelerometer & gyroscope to verify real movement
+* **Network Data**: IP address and tower triangulation
+* **Historical Behavior**: Past delivery routes and working hours
+* **Weather APIs**: Validates if disruption actually exists in that region
+* **Device Fingerprinting**: Detects emulator or spoofing apps
+* **Session Patterns**: Login timing and app usage behavior
+
+This ensures spoofing cannot bypass the system using fake GPS alone.
+
+---
+
+### 3. Fraud Ring Detection
+
+To detect coordinated attacks like the “500 worker fraud ring”, the system uses:
+
+* **Cluster Analysis**: Identifies multiple users with identical patterns
+* **Device Similarity Checks**: Same device configurations across accounts
+* **Synchronized Claims**: Multiple claims triggered at the same time
+* **Geographical Anomalies**: Users appearing in the same fake zone
+
+Such users are grouped and flagged as a potential fraud network.
+
+---
+
+### 4. User Experience & Fairness
+
+To ensure genuine workers are not penalized:
+
+* Claims are **soft-flagged**, not instantly rejected
+* A **trust score** is maintained per user
+* Users can re-verify via live tracking and sensor validation
+* Only high-risk cases trigger payout delays or manual review
+
+This balances fraud prevention with fairness.
+
+---
+
+### 5. System Impact
+
+This architecture ensures:
+
+* Strong protection against GPS spoofing attacks
+* Prevention of mass fraudulent payouts
+* Scalability against coordinated fraud rings
+* Fair treatment of genuine gig workers
+
+Thus, GigShield remains resilient even under adversarial conditions like the Market Crash scenario.
