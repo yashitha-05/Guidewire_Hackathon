@@ -1,0 +1,37 @@
+{
+  "name": "gigshield-parametric-insurance",
+  "version": "1.0.0",
+  "description": "AI-powered parametric insurance platform for gig delivery workers",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:ai\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:ai": "cd ai-service && python main.py",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "test": "npm run test:backend && npm run test:ai",
+    "test:backend": "cd backend && npm test",
+    "test:ai": "cd ai-service && python -m pytest",
+    "setup": "./scripts/setup.sh",
+    "deploy": "./scripts/deploy.sh"
+  },
+  "keywords": [
+    "insurance",
+    "parametric",
+    "gig-economy",
+    "ai",
+    "delivery",
+    "hackathon"
+  ],
+  "author": "Guidewire DEVTrails 2026 Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
