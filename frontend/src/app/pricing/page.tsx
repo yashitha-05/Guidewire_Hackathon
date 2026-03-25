@@ -7,9 +7,9 @@ export default function Pricing() {
   const plans = [
     {
       name: 'Basic',
-      price: 99,
+      price: 199,
       period: 'week',
-      coverage: 500,
+      coverage: 1500,
       features: [
         '₹500 coverage per disruption',
         'Weather monitoring',
@@ -20,9 +20,9 @@ export default function Pricing() {
     },
     {
       name: 'Standard',
-      price: 149,
+      price: 1149,
       period: 'week',
-      coverage: 1000,
+      coverage: 10100,
       features: [
         '₹1,000 coverage per disruption',
         'Advanced weather monitoring',
@@ -34,9 +34,9 @@ export default function Pricing() {
     },
     {
       name: 'Premium',
-      price: 199,
+      price: 1929,
       period: 'week',
-      coverage: 2000,
+      coverage: 21000,
       features: [
         '₹2,000 coverage per disruption',
         'Real-time weather alerts',
